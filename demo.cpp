@@ -51,5 +51,14 @@ int main(void)
         << "weight = " << ned2.weight << std::endl
         << std::endl;
 
+    // struct --> binary
+    const auto bin_vec = json::to_bson(json(ned));
+    const auto bin_vec2 = std::vector<uint8_t>((uint8_t*)&ned, (uint8_t*)&ned + sizeof(ned));
+
+    std::cout
+        << "length of binary vec = " << bin_vec.size()
+        << " vs sizeof(struct) = " << sizeof(ned)
+        << std::endl;
+
     return 0;
 }
