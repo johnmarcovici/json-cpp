@@ -18,7 +18,7 @@ NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(person, name, address, age, weight);
 int main(void)
 {
     // Read a json file, dump to screen
-    json data = json::parse(std::ifstream("example.json"));
+    const auto data = json::parse(std::ifstream("example.json"));
     std::cout
         << data.dump(4)
         << std::endl;
